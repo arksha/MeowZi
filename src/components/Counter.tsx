@@ -65,7 +65,7 @@ export default function Counter() {
 
     return (
         <div >
-            <div className="grid grid-cols-2 items-center gap-4 p-6">
+            <div className="grid grid-rows-2 items-center gap-4 p-6">
                 <div>
                     <Records items={rowStiches} />
                 </div>
@@ -90,11 +90,10 @@ export default function Counter() {
                         <div className="flex-1 p-4">
                             <button className="btn-primary" 
                                 onClick={CompleteRow}>Row Complete</button>
-                        </div>
-                        <div className="flex-1 p-4">
                             <button className="btn-secondary" 
                                 onClick={() => setCount(0)}>Reset Row</button>
                         </div>
+                            
                     </div>
                 </div>
             </div>
