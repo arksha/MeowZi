@@ -64,37 +64,64 @@ export default function Counter() {
     }, [direction, AddCount, MinusCount]);
 
     return (
-        <div >
-            <div className="grid grid-rows-2 items-center gap-4 p-6">
-                <div>
-                    <Records items={rowStiches} />
+        <div className="flex flex-col items-center gap-8 p-8">
+            {/* Records Section */}
+            <div className="w-full max-w-2xl">
+                <Records items={rowStiches} />
+            </div>
+
+            {/* Controls Section */}
+            <div className="w-full max-w-md flex flex-col gap-6">
+                {/* Stitches Batch Selector */}
+                <div className="flex flex-col items-center gap-2">
+                    <p className="label-primary text-lg font-semibold">Stitches Batch Number</p>
+                    <select
+                        className="appearance-none input-primary w-full max-w-xs p-2 border border-gray-300 rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+                        value={stichesBatch}
+                        onChange={(e) => setStichesBatch(Number(e.target.value))}
+                    >
+                        <option className="bg-blue-100 text-blue-800 font-medium text-base" value={1}>
+                            1 Stitch
+                        </option>
+                        <option className="bg-blue-200 text-blue-800 font-medium text-base" value={5}>
+                            5 Stitches
+                        </option>
+                        <option className="bg-blue-300 text-blue-800 font-medium text-base" value={10}>
+                            10 Stitches
+                        </option>
+                        <option className="bg-blue-400 text-blue-800 font-medium text-base" value={15}>
+                            15 Stitches
+                        </option>
+                        <option className="bg-blue-500 text-white font-medium text-base" value={20}>
+                            20 Stitches
+                        </option>
+                    </select>
                 </div>
-                <div>
-                    <div>
-                        <p className="label-primary">Stiches Batch Number</p>
-                        
-                        <input type="text" className="input-primary"
-                            value={stichesBatch}
-                            onChange={(e) => setStichesBatch(Number(e.target.value))}
-                            placeholder="Enter stiches batch" />
-                    </div>
-                    <h2 className="title">Count: {count} </h2>
-                    <div>
-                        <div className="flex-1 p-4">
-                            <SwipeButton 
-                                setDragDirection={setDirection}
-                            /> 
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex-1 p-4">
-                            <button className="btn-primary" 
-                                onClick={CompleteRow}>Row Complete</button>
-                            <button className="btn-secondary" 
-                                onClick={() => setCount(0)}>Reset Row</button>
-                        </div>
-                            
-                    </div>
+
+                {/* Count Display */}
+                <div className="text-center">
+                    <h2 className="title text-2xl font-bold">Count: {count}</h2>
+                </div>
+
+                {/* Swipe Button */}
+                <div className="flex justify-center">
+                    <SwipeButton setDragDirection={setDirection} />
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex justify-center gap-4">
+                    <button
+                        className="btn-primary px-4 py-2 bg-blue-500 text-white rounded-md shadow-md active:bg-blue-400"
+                        onClick={CompleteRow}
+                    >
+                        Row Complete
+                    </button>
+                    <button
+                        className="btn-secondary px-4 py-2 bg-gray-300 text-gray-800 rounded-md shadow-md active:bg-gray-200"
+                        onClick={() => setCount(0)}
+                    >
+                        Reset Row
+                    </button>
                 </div>
             </div>
         </div>
