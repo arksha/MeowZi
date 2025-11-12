@@ -6,10 +6,9 @@ import Records from "./Records";
 
 
 export default function PatternForm() {
-    const stitchTypes = ['inc', 'dec', 'sc', 'hdc', 'dc', 'tr'] as const;
+    const stitchTypes = ['inc', 'sc', 'hdc', 'dc', 'tr'] as const;
     const stitchTitles: Record<StitchType, string> = {
         inc: 'Increase',
-        dec: 'Decrease',
         sc: 'Single Crochet',
         hdc: 'Half Double Crochet',
         dc: 'Double Crochet',
@@ -94,7 +93,7 @@ export default function PatternForm() {
             {/* Add your pattern form elements here */}
             <div className="w-full items-center max-w-2xl">
                 <Records items={rowStiches} displayColumns={[
-                    "rowNumber", "stitchCount", "pattern", "repeat", "notes"
+                    "rowNumber", "stitchCount", "pattern", "notes"
                 ]} />
             </div>
             <h1 className="text-2xl font-bold">Pattern Form</h1>
@@ -146,7 +145,7 @@ export default function PatternForm() {
                 </button>
                 <div className="mb-6">
                     <label htmlFor="pattern-repeat" className="block text-sm font-medium text-gray-700 mb-2">
-                        Repeat of Pattern: {pattern.map(seg => `${seg.count} ${seg.stitch}`).join(', ')}
+                        Repeat of Pattern: {pattern.map(seg => `${seg.count} ${seg.stitch}`).join(', ')} "X" {patternRepeat}
                     </label>
                     {/* The Number Scroll Input Field */}
                     <input

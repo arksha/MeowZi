@@ -28,7 +28,6 @@ export const stichesHeightMap = new Map<string, number>([
 
 export const stichesIncrementMap = new Map<string, number>([
     ["inc", 2],
-    ["dec", 1/2],
 ]);
 
 export default function Counter() {

@@ -45,3 +45,7 @@ MeowZi is a React-based application that provides an interactive counter with sw
 ### Install Dependencies
 ```bash
 npm install
+
+### Start dev app
+```
+npm run dev
