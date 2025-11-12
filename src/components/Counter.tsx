@@ -4,9 +4,16 @@ import { useCallback, useEffect, useState } from "react";
 import Records from "./Records";
 import SwipeButton from "./SwipeButton";
 
-export type RowStiches = {
-    totalCount: number;
+export interface Block {
+    stitch: string;
+    count: number;
+}
+export interface RowStiches {
+    stitchCount: number;
     rowNumber: number;
+    pattern?: Block[];
+    repeat?: number;
+    notes?: string;
 }
 
 export const stichesHeightMap = new Map<string, number>([
@@ -17,6 +24,11 @@ export const stichesHeightMap = new Map<string, number>([
     ["dtr", 5],
     ["trtr", 6],
     ["qtr", 7],
+]);
+
+export const stichesIncrementMap = new Map<string, number>([
+    ["inc", 2],
+    ["dec", 1/2],
 ]);
 
 export default function Counter() {
@@ -47,7 +59,7 @@ export default function Counter() {
         setRowStiches(prevRowStiches => [
             ...prevRowStiches,
             {
-                totalCount: count,
+                stitchCount: count,
                 rowNumber: prevRowStiches.length + 1
             }
         ]);
