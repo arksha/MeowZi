@@ -43,7 +43,7 @@ const getReversedRows = (items: RowStiches[], displayColumns: RowStitchesKey[]) 
                 if (Array.isArray(value)) {
                     if (colName === 'pattern') {
                         const patternString = value.map(block =>
-                            `${block.stitch} (${block.count})`
+                            `(${block.stitch} x ${block.count})`
                         ).join(', '); // Joins all formatted strings with a comma and space
                         displayValue = patternString
                         
